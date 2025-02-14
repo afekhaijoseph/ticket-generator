@@ -6,7 +6,7 @@ import ticketImage from '../../assets/images/subtract.png';
 import barCode from '../../assets/images/barcode.png'
 
 const TicketPage = () => {
- const imgUrl = localStorage.getItem('imgUrl');
+ const imgUrl = sessionStorage.getItem('imgUrl');
  const name = localStorage.getItem('name');
  const email =localStorage.getItem('email');
  const request =localStorage.getItem('request');
