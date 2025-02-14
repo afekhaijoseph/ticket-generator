@@ -29,10 +29,12 @@
   border-radius: 32px;
 }
 
-/*  */
-
 .photoinput {
   display: none;
+}
+
+.otherinput {
+  padding: 0 16px;
 }
 
 .nameinput,

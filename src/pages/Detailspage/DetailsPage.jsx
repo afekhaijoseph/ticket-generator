@@ -90,7 +90,8 @@ const DetailsPage = () => {
         </div>
 
         <Divider />
-        
+
+        <div className={styles.otherinput}>
         <div>
           <label htmlFor="name" className={styles.nameinputlabel}>Enter your name</label>
           <input type="text" name="name" id="name" className={styles.nameinput} onChange={e => setName(e.target.value)} value={name} />
@@ -107,6 +108,9 @@ const DetailsPage = () => {
           <label htmlFor="request">Special Request</label>
           <textarea id="request" name="request" rows="3" className={styles.requestinput} onChange={e => setRequest(e.target.value)} value={request}></textarea>
         </div>
+        
+        </div>
+        
         
         <div className={styles.buttons}>
           <button type="button" onClick={() => navigate(-1)}>Back</button>
