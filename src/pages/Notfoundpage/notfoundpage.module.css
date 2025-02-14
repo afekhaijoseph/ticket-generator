@@ -1,7 +1,7 @@
 .notfoundcontainer {
   height: 100vh;
 }
-h1 {
+.notfoundtext {
   text-align: center;
   font-family: "Road rage";
   color: red;
