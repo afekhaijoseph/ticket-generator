@@ -35,6 +35,7 @@ h2 {
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   font-size: 13px;
 }
 
@@ -131,6 +132,7 @@ h2 {
 @media (max-width: 720px) {
   .infogrid {
     width: 75%;
+    margin-top: 10px;
   }
 
   .piccontainer {
