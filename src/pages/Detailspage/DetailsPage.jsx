@@ -5,9 +5,6 @@ import Divider from '../../components/Divider/Divider';
 import { useNavigate } from 'react-router-dom';
 
 const DetailsPage = () => {
-  const navigate = useNavigate();
-
-
   const [imgUrl, setImgUrl] = useState(sessionStorage.getItem('imgUrl') || '');
   const [name, setName] = useState(localStorage.getItem('name') || '');
   const [email, setEmail] = useState(localStorage.getItem('email') || '');
@@ -15,8 +12,12 @@ const DetailsPage = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [newUpload, setNewUpload] = useState(false);
+  const navigate = useNavigate();
 
-  // Save fields to sessionStorage/localStorage
+  useEffect(() => {
+    if (newUpload) setNewUpload(false);
+  }, [newUpload]);
+
   useEffect(() => {
     sessionStorage.setItem('imgUrl', imgUrl);
     localStorage.setItem('name', name);
@@ -24,12 +25,9 @@ const DetailsPage = () => {
     localStorage.setItem('request', request);
   }, [imgUrl, name, email, request]);
 
-  // Handle image upload
   const handleImageChange = async (e) => {
-    if (e.target.files && e.target.files[0]) {
+    if (e.target.files[0]) {
       setLoading(true);
-      setNewUpload(false); // Reset before upload
-
       const file = e.target.files[0];
       const data = new FormData();
       data.append('file', file);
@@ -41,113 +39,61 @@ const DetailsPage = () => {
           method: 'POST',
           body: data,
         });
-
-        const uploadedImage = await res.json();
+        const uploadedImageUrl = await res.json();
         setLoading(false);
-
-        if (uploadedImage.secure_url) {
-          setImgUrl(uploadedImage.secure_url);
-          setNewUpload(true); // Mark as new upload
-          setErrors((prevErrors) => ({ ...prevErrors, imgUrl: '' })); // Clear errors
+        if (uploadedImageUrl.secure_url) {
+          setImgUrl(uploadedImageUrl.secure_url);
+          setNewUpload(true);
         } else {
-          throw new Error('Upload failed');
+          setErrors({ ...errors, imgUrl: 'Image upload failed' });
         }
       } catch (error) {
         setLoading(false);
-        setErrors((prevErrors) => ({ ...prevErrors, imgUrl: 'Image upload failed' }));
-        console.error("Upload failed:", error);
+        setErrors({ ...errors, imgUrl: 'Image upload failed' });
       }
     }
   };
 
-  // Form validation
   const validate = () => {
     const errors = {};
     if (!imgUrl) errors.imgUrl = 'Please upload a picture';
-    if (!name.trim()) errors.name = 'Please enter your name';
-    if (!email.trim()) {
-      errors.email = 'Please enter your email';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errors.email = 'Please enter a valid email address';
-    }
+    if (!name.trim()) errors.name = 'Please include your name';
+    if (!email.trim()) errors.email = 'Please include your email';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = 'Enter a valid email';
     return errors;
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
     setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length === 0) {
-      navigate('/ticket');
-    }
+    if (!Object.keys(validationErrors).length) navigate('/ticket');
   };
 
   return (
     <PageWrapper>
       <form onSubmit={handleSubmit}>
-        {/* Image Upload Section */}
         <div className={styles.profilepicinput}>
           <p className={styles.newphotolabel}>Upload Profile Photo</p>
           <div className={styles.photoinputcontainer}>
-            <input 
-              type="file" 
-              name="photo" 
-              id="photo" 
-              className={styles.photoinput} 
-              onChange={handleImageChange} 
-            />
+            <input type="file" id="photo" className={styles.photoinput} onChange={handleImageChange} />
             <label htmlFor="photo" className={styles.photoinputlabel}>Drag & drop, or click to upload</label>
           </div>
           {loading && <p className={styles.spinner}>Uploading...</p>}
           {errors.imgUrl && <p style={{ color: 'red' }}>{errors.imgUrl}</p>}
-          {newUpload && <p style={{ color: 'green' }}>Image uploaded successfully!</p>}
+          {newUpload && !loading && <p style={{ color: 'green' }}>Image uploaded successfully!</p>}
         </div>
-
         <Divider />
-
-        {/* Name & Email Inputs */}
         <div className={styles.otherinput}>
-          <div>
-            <label htmlFor="name" className={styles.nameinputlabel}>Enter your name</label>
-            <input 
-              type="text" 
-              name="name" 
-              id="name" 
-              className={styles.nameinput} 
-              onChange={e => setName(e.target.value)} 
-              value={name} 
-            />
-            {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
-          </div>
-
-          <div>
-            <label htmlFor="e-mail">Enter your email*</label>
-            <input 
-              type="email" 
-              id="e-mail" 
-              name="e-mail" 
-              className={styles.emailinput} 
-              onChange={e => setEmail(e.target.value)} 
-              value={email} 
-            />
-            {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
-          </div>
-
-          <div>
-            <label htmlFor="request">Special Request</label>
-            <textarea 
-              id="request" 
-              name="request" 
-              rows="3" 
-              className={styles.requestinput} 
-              onChange={e => setRequest(e.target.value)} 
-              value={request}
-            ></textarea>
-          </div>
+          <label htmlFor="name">Enter your name</label>
+          <input type="text" id="name" className={styles.nameinput} value={name} onChange={e => setName(e.target.value)} />
+          {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
+          <label htmlFor="email">Enter your email*</label>
+          <input type="email" id="email" className={styles.emailinput} value={email} onChange={e => setEmail(e.target.value)} />
+          {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
+          <label htmlFor="request">Special Request</label>
+          <textarea id="request" className={styles.requestinput} value={request} onChange={e => setRequest(e.target.value)} />
         </div>
-
         <div className={styles.buttons}>
           <button type="button" onClick={() => navigate(-1)}>Back</button>
           <button type="submit">Get my ticket</button>
