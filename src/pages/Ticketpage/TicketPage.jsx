@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './ticketpage.module.css'
 import PageWrapper from '../../components/Pagewrapper/PageWrapper'
 import {Link} from 'react-router-dom'
-import ticketImage from '../assets/images/subtract.png';
+import ticketImage from '../../assets/images/subtract.png';
 import barCode from '../../assets/images/barcode.png'
 
 const TicketPage = () => {
