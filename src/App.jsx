@@ -3,6 +3,7 @@ import MainLayout from './layouts/MainLayout/MainLayout'
 import HomePage from './pages/Homepage/HomePage'
 import DetailsPage from './pages/Detailspage/DetailsPage'
 import TicketPage from './pages/Ticketpage/TicketPage'
+import NotFoundPage from './pages/Notfoundpage/NotFoundPage'
 import './index.css'
 
 const router = createBrowserRouter(
@@ -12,6 +13,7 @@ const router = createBrowserRouter(
       <Route index element={<HomePage/>}/>
       <Route path='/details' element={<DetailsPage/>}/>
       <Route path='/ticket' element={<TicketPage/>}/>
+      <Route path='*' element = {<NotFoundPage/>}/>
   </Route>
   )
 )
