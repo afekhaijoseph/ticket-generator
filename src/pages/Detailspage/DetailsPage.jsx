@@ -80,7 +80,7 @@ const DetailsPage = () => {
     <PageWrapper>
       <form onSubmit={handleSubmit}>
         <div className={styles.profilepicinput}>
-          <p>Upload Profile Photo</p>
+          <p className={styles.newphotolabel}>Upload Profile Photo</p>
           <div className={styles.photoinputcontainer}>
             <input type="file" name="photo" id="photo" className={styles.photoinput} onChange={handleImageChange} />
             <label htmlFor="photo" className={styles.photoinputlabel}>Drag & drop, or click to upload</label>
