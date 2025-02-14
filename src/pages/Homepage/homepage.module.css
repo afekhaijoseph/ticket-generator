@@ -52,12 +52,6 @@
   color: #fff;
 }
 
-.tickettypeoption:hover {
-  background: #000000;
-  opacity: 20%;
-  color: #ffffff;
-}
-
 .tickettypeoption p {
   font-size: 14px;
 }
