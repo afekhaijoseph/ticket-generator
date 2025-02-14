@@ -1,0 +1,166 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  gap: 8px;
+  background: radial-gradient(
+      103.64% 57.39% at 14.02% 32.06%,
+      rgba(36, 160, 181, 0.2) 0%,
+      rgba(36, 160, 181, 0) 100%
+    )
+    rgba(10, 12, 17, 0.1);
+  border-width: 0px 2px 2px 2px;
+  border-style: solid;
+  border-color: #07373f;
+  backdrop-filter: blur(7px);
+  border-radius: 24px;
+}
+
+.hero h1 {
+  font-family: "Road Rage", serif;
+  font-size: 62px;
+}
+
+.hero p {
+  font-family: "Roboto";
+  font-weight: 300;
+  text-align: center;
+  width: 80%;
+}
+
+.selecttype p {
+  font-family: "Roboto";
+}
+.tickettype {
+  display: flex;
+  background: #052228;
+  justify-content: space-between;
+  border-radius: 24px;
+  padding: 16px;
+  border: 1px solid #07373f;
+  margin-top: 1rem;
+}
+
+.tickettypeoption {
+  border: 2px solid #197686;
+  padding: 12px;
+  border-radius: 12px;
+  width: 30%;
+}
+
+.tickettypeoption:hover {
+  background: #000000;
+  opacity: 20%;
+  color: #ffffff;
+}
+
+.tickettypeoption p {
+  font-size: 14px;
+}
+
+.tickettypeoption p:first-of-type {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.activated {
+  background: #12464e;
+  border: 1px solid #197686;
+}
+
+.numoftickets {
+  margin-top: 1rem;
+}
+
+.dropdown {
+  display: block;
+  width: 100%;
+  border: 1px solid #07373f;
+  background: #08252b;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.dropdown:focus-visible {
+  outline: none;
+  border: 1px solid #07373f;
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.buttons button,
+.link {
+  width: 48%;
+  border-radius: 8px;
+  padding: 12px 24px;
+  margin-top: 24px;
+  font-family: "JejuMyeongjo";
+  font-weight: 300;
+}
+
+.buttons button {
+  border: 1px solid #24a0b5;
+  border-radius: 8px;
+}
+
+.buttons button:hover {
+  background: #24a0b5;
+}
+.link {
+  background: #24a0b5;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.link:hover {
+  background: transparent;
+  border: 1px solid #23a0b5;
+}
+
+@media (max-width: 500px) {
+  .hero h1 {
+    font-size: 50px;
+  }
+
+  .tickettype {
+    flex-direction: column;
+    padding: 0 16px;
+  }
+
+  .tickettypeoption {
+    width: 100%;
+    margin: 16px 0;
+    text-align: left;
+  }
+
+  .tickettypeoption p {
+    font-size: 18px;
+  }
+
+  .tickettypeoption p:first-of-type {
+    font-size: 30px;
+    padding: 12px 0;
+  }
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons button,
+  .link {
+    width: 100%;
+    border-radius: 8px;
+    padding: 12px 24px;
+    margin-top: 24px;
+    font-family: "JejuMyeongjo";
+    font-weight: 300;
+  }
+
+  .tickettypeoption:hover {
+    background: transparent;
+  }
+}

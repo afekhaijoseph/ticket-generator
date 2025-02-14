@@ -1,0 +1,17 @@
+.wrapper {
+  border: 1px solid #0e464f;
+  background: #08252b;
+  padding: 30px;
+  margin-top: 2rem;
+  border-radius: 32px;
+  font-family: "Roboto";
+  font-weight: 300;
+}
+
+@media (max-width: 500px) {
+  .wrapper {
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
+}
