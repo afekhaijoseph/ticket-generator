@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PageWrapper from '../../components/Pagewrapper/PageWrapper';
-import styles from './Detailspage.module.css';
+import styles from './detailspage.module.css';
 import Divider from '../../components/Divider/Divider';
 import { useNavigate } from 'react-router-dom';
 
