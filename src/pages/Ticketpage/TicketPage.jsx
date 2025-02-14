@@ -2,6 +2,8 @@ import React from 'react'
 import styles from './ticketpage.module.css'
 import PageWrapper from '../../components/Pagewrapper/PageWrapper'
 import {Link} from 'react-router-dom'
+import ticketImage from '../assets/images/subtract.png';
+import barCode from '../../assets/images/barcode.png'
 
 const TicketPage = () => {
  const imgUrl = localStorage.getItem('imgUrl');
@@ -17,7 +19,7 @@ const TicketPage = () => {
         <p>Check your email for a copy or you can download</p>
 
         <div className={styles.ticket}>
-          <img className={styles.ticketimage} src="../../src/assets/images/subtract.png" alt="" />
+          <img className={styles.ticketimage} src={ticketImage} />
 
           <div className={styles.ticketinfo}>
             <h2>Techember Fest "25</h2>
@@ -51,7 +53,7 @@ const TicketPage = () => {
             </div>
 
             <div className={styles.barcode}>
-               <img src="../../src/assets/images/barcode.png" alt="" />
+              <img src={barCode} alt="" />
             </div>
           </div>
 
