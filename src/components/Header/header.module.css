@@ -38,7 +38,7 @@
   height: 4px;
   background-color: #0e464f;
 }
-@media (max-width: 500px) {
+@media (max-width: 720px) {
   .container {
     margin: 16px;
   }

@@ -8,7 +8,7 @@
   font-weight: 300;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 720px) {
   .wrapper {
     padding: 0;
     background: transparent;

@@ -85,7 +85,7 @@ const HomePage = () => {
             </select>
         </div>
         <div className={styles.buttons}>
-                <button>Cancel</button>
+                <button className={styles.cancel}>Cancel</button>
                 <Link to='/details' onClick={getValues} className={styles.link}>Next</Link>
             </div>
     </PageWrapper>

@@ -14,10 +14,6 @@ const DetailsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setErrors(validate());
-  }, [imgUrl, name, email]); // Validate fields dynamically as they change
-
-  useEffect(() => {
     if (imgUrl) {
       console.log("Image uploaded successfully!");
     }

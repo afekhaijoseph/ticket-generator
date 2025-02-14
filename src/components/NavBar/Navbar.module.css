@@ -15,6 +15,7 @@
 
 #navigation ul {
   display: flex;
+  list-style: none;
 }
 
 #navigation ul li {
@@ -29,7 +30,9 @@
   color: #0a0c11;
   background: #ffffff;
   border-radius: 12px;
-  padding: 8px 16px;
+  padding: 16px;
+  text-decoration: none;
+  font-size: 16px;
 }
 
 #myticket:hover {
@@ -37,7 +40,7 @@
   color: #ffffff;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 720px) {
   #navigation ul {
     display: none;
   }

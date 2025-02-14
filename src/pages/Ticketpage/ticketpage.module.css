@@ -47,13 +47,17 @@ h2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: 1fr 1fr 1fr;
-  width: 50%;
+  width: 45%;
   margin: auto;
   margin-top: 3rem;
   background: #08343c;
   border: 1px solid #133d44;
   word-break: break-word;
   border-radius: 8px;
+}
+
+.infogrid p {
+  margin: 0;
 }
 
 .infogrid div {
@@ -84,7 +88,7 @@ h2 {
 .barcode {
   width: 45%;
   margin: auto;
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 .barcode img {
@@ -100,7 +104,7 @@ h2 {
 
 .buttons button,
 .another {
-  width: 48%;
+  width: 45%;
   border-radius: 8px;
   padding: 12px 24px;
   margin-top: 24px;
@@ -109,16 +113,22 @@ h2 {
 }
 
 .buttons button:first-of-type {
+  color: #24a0b5;
+  background: #08252b;
   border: 1px solid #24a0b5;
-  border-radius: 8px;
+  padding: 12px 0;
 }
 
 .another {
   background: #24a0b5;
   border-radius: 8px;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 720px) {
   .infogrid {
     width: 75%;
   }
@@ -129,17 +139,18 @@ h2 {
   }
 
   .barcode {
-    width: 60%;
+    width: 100%;
     margin: auto;
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 
   .buttons {
     flex-direction: column;
+    width: 100%;
   }
 
   .buttons button,
   .another {
-    width: 100%;
+    width: auto;
   }
 }
