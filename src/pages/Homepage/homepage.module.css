@@ -77,6 +77,8 @@
   background: #08252b;
   padding: 12px;
   border-radius: 12px;
+  color: #ffffff;
+  font-size: 16px;
 }
 
 .dropdown:focus-visible {
@@ -84,15 +86,20 @@
   border: 1px solid #07373f;
 }
 
+.dropdown option {
+  border: none;
+}
+
 .buttons {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  flex-gap: 10px;
 }
 
 .cancel,
 .link {
-  width: 48%;
+  width: 45%;
   border-radius: 8px;
   padding: 14px 24px;
   margin-top: 24px;
