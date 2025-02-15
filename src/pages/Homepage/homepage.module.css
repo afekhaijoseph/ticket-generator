@@ -54,6 +54,7 @@
 
 .tickettypeoption p {
   font-size: 14px;
+  margin: 5px;
 }
 
 .tickettypeoption p:first-of-type {
@@ -136,7 +137,7 @@
 
 @media (max-width: 720px) {
   .hero h1 {
-    font-size: 50px;
+    font-size: 45px;
   }
 
   .tickettype {
