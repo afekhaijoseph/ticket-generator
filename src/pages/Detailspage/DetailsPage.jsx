@@ -3,8 +3,10 @@ import PageWrapper from '../../components/Pagewrapper/PageWrapper';
 import styles from './detailspage.module.css';
 import Divider from '../../components/Divider/Divider';
 import { useNavigate } from 'react-router-dom';
+import cloudIcon from '../../assets/images/cloudicon.png'
 
 const DetailsPage = () => {
+  const [selectedImage, setSelectedImage] = useState('')
   const [imgUrl, setImgUrl] = useState(sessionStorage.getItem('imgUrl') || '');
   const [name, setName] = useState(localStorage.getItem('name') || '');
   const [email, setEmail] = useState(localStorage.getItem('email') || '');
@@ -43,6 +45,7 @@ const DetailsPage = () => {
         setLoading(false);
         if (uploadedImageUrl.secure_url) {
           setImgUrl(uploadedImageUrl.secure_url);
+          setSelectedImage(file ? URL.createObjectURL(file) : undefined)
           setNewUpload(true);
         } else {
           setErrors({ ...errors, imgUrl: 'Image upload failed' });
@@ -77,10 +80,25 @@ const DetailsPage = () => {
           <p className={styles.newphotolabel}>Upload Profile Photo</p>
           <div className={styles.photoinputcontainer}>
             <input type="file" id="photo" className={styles.photoinput} onChange={handleImageChange} />
-            <label htmlFor="photo" className={styles.photoinputlabel}>Drag & drop, or click to upload</label>
+            <label htmlFor="photo" className={styles.photoinputlabel}>
+              {
+              selectedImage ?
+               <img src={selectedImage} className={styles.preview}/>:
+              <div>
+                <div className={styles.cloud }>
+                   <img src={cloudIcon} alt="upload icon" />
+                </div>
+                
+                <p>Drag & drop, or click to upload</p>
+              </div>
+                }
+              
+              
+              </label>
           </div>
           {loading && <p className={styles.spinner}>Uploading...</p>}
           {errors.imgUrl && <p style={{ color: 'red' }}>{errors.imgUrl}</p>}
+  
           {newUpload && !loading && <p style={{ color: 'green' }}>Image uploaded successfully!</p>}
         </div>
         <Divider />
