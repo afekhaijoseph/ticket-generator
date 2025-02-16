@@ -53,10 +53,6 @@
   display: none;
 }
 
-.otherinput {
-  padding: 0 16px;
-}
-
 .nameinput,
 .emailinput,
 .requestinput {
@@ -69,6 +65,10 @@
   padding: 12px;
   margin: 1rem 0;
   font-size: 16px;
+}
+.otherinput {
+  width: 95%;
+  margin: auto;
 }
 
 .spinner {

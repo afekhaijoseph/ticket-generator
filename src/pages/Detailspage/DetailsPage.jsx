@@ -110,7 +110,7 @@ const DetailsPage = () => {
           <input type="email" id="email" className={styles.emailinput} value={email} onChange={e => setEmail(e.target.value)} />
           {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
           <label htmlFor="request">Special Request</label>
-          <textarea id="request" className={styles.requestinput} value={request} onChange={e => setRequest(e.target.value)} />
+          <textarea id="request" className={styles.requestinput} value={request} rows = "3" onChange={e => setRequest(e.target.value)} />
         </div>
         <div className={styles.buttons}>
           <button type="button" onClick={() => navigate(-1)}>Back</button>

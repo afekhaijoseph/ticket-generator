@@ -32,7 +32,7 @@ const HomePage = () => {
     <div className={styles.hero}>
             <h1>Techember Fest "25</h1>
             <p>Join us for an unforgettable experience at [Event name]! Secure your spot now.</p>
-            <p>[Event Location]  ||  March 15, 2025 | 7:00PM</p>
+            <p>📍 [Event Location]  ||  March 15, 2025 | 7:00PM</p>
         </div>
         <Divider/>
         <div className={styles.selecttype}>

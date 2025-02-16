@@ -23,8 +23,8 @@ const TicketPage = () => {
 
           <div className={styles.ticketinfo}>
             <h2>Techember Fest "25</h2>
-            <p>04 Rumens road, Ikoyi, Lagos</p>
-            <p>March 15, 2025 | 7:00pm </p>
+            <p>📍04 Rumens road, Ikoyi, Lagos</p>
+            <p>📅 March 15, 2025 | 7:00 PM </p>
           <div className={styles.piccontainer}>
               <img src={imgUrl} alt="" />
             </div>
