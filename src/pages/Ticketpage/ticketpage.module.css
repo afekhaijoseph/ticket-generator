@@ -43,6 +43,10 @@ h2 {
   max-width: 300px;
 }
 
+.ticketinfo * {
+  flex-grow: 1;
+}
+
 .ticketinfo h2 {
   font-family: "Road rage";
   font-size: 38px;
@@ -91,6 +95,7 @@ h2 {
 
 .barcode {
   flex-grow: 1;
+  margin-top: 1rem;
 }
 
 .barcode .barcode img {
@@ -107,7 +112,6 @@ h2 {
 
 .downloadticket,
 .another {
-  flex-grow: 1;
   flex-basis: 100%;
   border-radius: 8px;
   padding: 12px 24px;
@@ -134,10 +138,6 @@ h2 {
 @media (max-width: 720px) {
   .ticketinfo h2 {
     margin: 5px;
-  }
-  .piccontainer {
-    max-width: 170px;
-    max-height: 170px;
   }
 
   .barcode {
