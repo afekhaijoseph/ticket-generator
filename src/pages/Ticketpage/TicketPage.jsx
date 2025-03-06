@@ -27,8 +27,7 @@ const TicketPage = () => {
     const link = document.createElement("a");
     link.href = imgData;
     link.download = "ticket.png";
-    link.click(); // Auto-download the 
-    alert('downloaded')
+    link.click(); 
 });
  }
   return (
@@ -45,7 +44,7 @@ const TicketPage = () => {
             <p>📍04 Rumens road, Ikoyi, Lagos</p>
             <p>📅 March 15, 2025 | 7:00 PM </p>
           <div className={styles.piccontainer}>
-              <img src={imgUrl} alt="" />
+              <img className={styles.pic} src={imgUrl} alt="" />
             </div>
 
             <div className = {styles.infogrid}>
