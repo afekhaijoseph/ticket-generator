@@ -37,7 +37,7 @@ const HomePage = () => {
     const handleSubmit = (e) =>{
         const type = document.querySelector(`.${styles.activated}`).dataset.type;
         const numOfTickets = option;
-        if(option == 'How many tickets are you purchasing?'){
+        if(option == 'Select  number of tickets.'){
             e.preventDefault();
             setError('Please select the number of tickets.')
             return
