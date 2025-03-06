@@ -33,13 +33,14 @@ h2 {
 .ticketinfo {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 0;
   font-size: 13px;
   display: flex;
   flex-direction: column;
   height: 95%;
+  max-width: 300px;
 }
 
 .ticketinfo h2 {
@@ -52,9 +53,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: 1fr 1fr 1fr;
-  width: 50%;
-  margin: auto;
-  margin-top: 3rem;
+  margin-bottom: 2rem;
   background: #08343c;
   border: 1px solid #133d44;
   word-break: break-word;
@@ -91,9 +90,6 @@ h2 {
 }
 
 .barcode {
-  width: 45%;
-  margin: auto;
-  margin-top: 3rem;
 }
 
 .barcode img {
@@ -104,17 +100,19 @@ h2 {
 .buttons {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  gap: 16px;
 }
 
-.buttons button,
+.downloadticket,
 .another {
-  width: 45%;
+  flex-grow: 1;
+  flex-basis: 100%;
   border-radius: 8px;
   padding: 12px 24px;
   margin-top: 24px;
   font-family: "JejuMyeongjo";
   font-weight: 300;
+  font-size: 16px;
 }
 
 .buttons button:first-of-type {
@@ -134,11 +132,6 @@ h2 {
 }
 
 @media (max-width: 720px) {
-  .infogrid {
-    width: 75%;
-    margin-top: 10px;
-  }
-
   .ticketinfo h2 {
     margin: 5px;
   }

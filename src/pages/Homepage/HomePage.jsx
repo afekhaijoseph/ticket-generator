@@ -1,36 +1,55 @@
-import React from 'react'
 import PageWrapper from '../../components/Pagewrapper/PageWrapper'
 import Divider from '../../components/Divider/Divider'
 import styles from './homepage.module.css'
 import {Link} from 'react-router-dom'
-import {useState} from 'react'
+import {useState, useRef} from 'react'
 
 const HomePage = () => {
-    const [option, setOption] = useState('1');
+    const [isOpen, setIsOpen] = useState(false);
+    const [option, setOption] = useState('How many tickets are you purchasing?')
+    const listRef = useRef(null)
+    const selectRef = useRef(null)
+    const [error, setError] = useState('');
 
     const handleClick = (event) =>{
         event.currentTarget.classList.add(styles.activated)
         document.querySelectorAll(`.${styles.tickettypeoption}`).forEach((option)=>{
             if(event.currentTarget !== option){
                 option.classList.remove(styles.activated);
-                
             }
         })
     }
 
-    const getValues = () =>{
+    const handleSelect = (e) =>{
+        //toggles the dropdown menu
+        if(e.currentTarget == selectRef.current){
+            setIsOpen((prev) => !prev)
+        }
+        const newValue = e.target.value;
+        if (newValue !== undefined) {
+            setOption(newValue);
+            setIsOpen(false);
+            if(error) setError('');
+        }
+    }
+
+
+    const handleSubmit = (e) =>{
         const type = document.querySelector(`.${styles.activated}`).dataset.type;
         const numOfTickets = option;
-
+        if(option == 'How many tickets are you purchasing?'){
+            e.preventDefault();
+            setError('Please select the number of tickets.')
+            return
+        }
         localStorage.setItem("type", type);
-        localStorage.setItem("numOfTickets", numOfTickets)
-        
-        
+        localStorage.setItem("numOfTickets", numOfTickets)    
     }
+
   return (
     <PageWrapper>
     <div className={styles.hero}>
-            <h1>Techember Fest "25</h1>
+            <h1>Techember Fest &quot;25</h1>
             <p>Join us for an unforgettable experience at [Event name]! Secure your spot now.</p>
             <p>📍 [Event Location]  ||  March 15, 2025 | 7:00PM</p>
         </div>
@@ -70,23 +89,24 @@ const HomePage = () => {
         
 
         <div className={styles.numoftickets}>
-            <label htmlFor="num-of-tickets">Number Of Tickets</label>
-            <select name="numbers" onChange = {e => setOption(e.target.value)} className={styles.dropdown}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select>
+            <p htmlFor="num-of-tickets">Number Of Tickets</p>
+            <div ref={selectRef} className={styles.ticketnuminput} onClick={handleSelect}>
+            <div className={styles.selected}>{option}</div> 
+            {
+                isOpen && <ul ref={listRef} name="numbers" className={styles.dropdown}>
+                <li value="1">1</li>
+                <li value="2">2</li>
+                <li value="3">3</li>
+                <li value="4">4</li>
+                <li value="5">5</li>
+            </ul> 
+           }
+            </div>
+            {error && <p className={styles.error}>{error}</p>}            
         </div>
         <div className={styles.buttons}>
                 <button className={styles.cancel}>Cancel</button>
-                <Link to='/details' onClick={getValues} className={styles.link}>Next</Link>
+                <Link to='/details' onClick={handleSubmit} className={styles.link}>Next</Link>
             </div>
     </PageWrapper>
   )

@@ -1,10 +1,9 @@
-import React from 'react'
 import { Outlet } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
 import Header from '../../components/Header/Header'
 import styles from './mainlayout.module.css'
 import { useLocation } from 'react-router-dom'
-const MainLayout = ({}) => {
+const MainLayout = () => {
   const location = useLocation();
   let pageProps = {};
 
@@ -23,7 +22,6 @@ const MainLayout = ({}) => {
     <Header pageProps = {pageProps}>
       <Outlet/>
     </Header>
-    
     </div>
   
   )

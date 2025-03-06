@@ -1,4 +1,3 @@
-import React from 'react'
 import {Link} from 'react-router-dom'
 import styles from './notfoundpage.module.css'
 
@@ -8,9 +7,7 @@ const NotFoundPage = () => {
         <h1 className = {styles.notfoundtext}>How did you get here??</h1>
         <Link className={styles.backhome} to = '/'>Go Back!</Link>
         <div className={styles.backhomecontainer}>
-        
         </div>
-        
     </div>
   )
 }

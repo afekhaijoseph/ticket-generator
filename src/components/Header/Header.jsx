@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './header.module.css'
 
-const Header = ({pageProps,children}) => {
+const Header = ({pageProps, children}) => {
   return (
     <>
     <div className={styles.container}>
