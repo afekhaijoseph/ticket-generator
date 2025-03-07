@@ -43,11 +43,13 @@ const TicketPage = () => {
             <h2>Techember Fest &quot;25</h2>
             <p>📍04 Rumens road, Ikoyi, Lagos</p>
             <p>📅 March 15, 2025 | 7:00 PM </p>
-          <div className={styles.piccontainer}>
+            <div className={styles.picwrapper}>
+            <div className={styles.piccontainer}>
               <img className={styles.pic} src={imgUrl} alt="" />
             </div>
-
-            <div className = {styles.infogrid}>
+            </div>
+          <div className={styles.infogridwrapper}>
+                        <div className = {styles.infogrid}>
               <div>
                 <p>Name</p>
               <p>{name}</p>
@@ -69,13 +71,14 @@ const TicketPage = () => {
               <p>{request}</p>
               </div>         
             </div>
-
-            <div className={styles.barcode}>
+          </div>
+          <div className={styles.barcode}>
               <img src={barCode} alt="" />
             </div>
-          </div>
 
         </div>
+          </div>
+
 
         <div className={styles.buttons}>
             <Link to='/' className={styles.another}>Book Another Ticket</Link>
