@@ -32,7 +32,7 @@ const TicketPage = () => {
  }
   return (
     <PageWrapper>
-      <div className={styles.ticketpagecontainer}>
+      <div className={styles.ticketpagecontainer}> 
         <h2>Your ticket is booked</h2>
         <p>Check your email for a copy or you can download</p>
 
